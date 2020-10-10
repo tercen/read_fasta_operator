@@ -8,18 +8,19 @@
 
 Input projection|.
 ---|---
-`col`        | character, document ID
+`col`        | factor, document ID
 
 Output relations|.
 ---|---
-`name`        | character, sequence name
-`sequence`        | character, sequence
+`name`        | factor, sequence name
+`position`        | numeric, position of amino or nucleic acid in the sequence
+`letter`        | factor, letter corresponding to an amino or nucleic acid
+`value`        | numeric, numeric value associated to an amino or nucleic acid
 
 ##### Details
-The operator takes all the values of a cell and returns the value which is the median.The computation is done per cell. There is one value returned for each of the input cell.
 
-#### References
+##### References
 
 ##### See Also
 
-#### Examples
+https://github.com/tercen/msa_operator
