@@ -10,9 +10,8 @@ doc_to_data = function(df){
   first.lines <- grep(">", dat)
   seqs <- list()
   first.lines <- c(first.lines, length(dat) + 1)
-  for(i in 1:(length(first.lines))) {
-    if(i < length(first.lines)) seq <- dat[first.lines[i]:(first.lines[i+1] - 1)]
-    else seq <- dat[first.lines[i-1]:(first.lines[i] - 1)]
+  for(i in 1:(length(first.lines) - 1)) {
+    seq <- dat[first.lines[i]:(first.lines[i+1] - 1)]
     df_tmp <- c(name = seq[1], letter = paste(seq[-1], sep="", collapse=""))
     df_tmp_out <- data.frame(
       name = df_tmp[["name"]],
@@ -20,13 +19,14 @@ doc_to_data = function(df){
     ) %>% mutate(position = 1:nrow(.))
     seqs[[i]] <- df_tmp_out
   }
-
+  
   df_out <- as.data.frame(do.call(rbind, seqs)) %>%
     mutate(value = as.numeric(letter)) %>%
     mutate(.ci= rep_len(df$.ci[1], nrow(.)))
   
   return(df_out)
 }
+
 
 ctx = tercenCtx()
 

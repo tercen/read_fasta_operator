@@ -2,7 +2,7 @@ library(tercen)
 library(dplyr)
 
 options("tercen.workflowId" = "a77770c3923fad0ca99b77fa8905471d")
-options("tercen.stepId"     = "a069e6e6-38a4-4e6d-ae58-60d415a96d9c")
+options("tercen.stepId"     = "c09e400b-0915-4f48-a431-7403d1495ac0")
 
 doc_to_data = function(df){
   filename = tempfile()
@@ -12,6 +12,7 @@ doc_to_data = function(df){
   dat <- readLines(filename)
   first.lines <- grep(">", dat)
   seqs <- list()
+  first.lines <- c(first.lines, length(dat) + 1)
   for(i in 1:(length(first.lines) - 1)) {
     seq <- dat[first.lines[i]:(first.lines[i+1] - 1)]
     df_tmp <- c(name = seq[1], letter = paste(seq[-1], sep="", collapse=""))
@@ -25,6 +26,7 @@ doc_to_data = function(df){
   df_out <- as.data.frame(do.call(rbind, seqs)) %>%
     mutate(value = as.numeric(letter)) %>%
     mutate(.ci= rep_len(df$.ci[1], nrow(.)))
+  
   return(df_out)
 }
 
