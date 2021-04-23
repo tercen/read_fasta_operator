@@ -1,7 +1,7 @@
 {
-  "name": "Read FASTA",
-  "description": "Reads a fasta file",
-  "tags": ["import", "bioinformatics", "sequence analysis"],
+  "name": "FASTA",
+  "description": "Import file from FASTA compatible machinery (.fasta, .fna, .ffn, .faa, .frn)",
+  "tags": ["import", "sequence analysis"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/read_fasta_operator"],
   "properties": []
