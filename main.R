@@ -21,19 +21,18 @@ doc_to_data = function(df){
   }
   
   df_out <- as.data.frame(do.call(rbind, seqs)) %>%
-    mutate(value = as.numeric(letter)) %>%
+    mutate(value = as.numeric(as.factor(letter))) %>%
     mutate(.ci= rep_len(df$.ci[1], nrow(.)))
   
   return(df_out)
 }
-
 
 ctx <- tercenCtx()
 
 if (!any(ctx$cnames == "documentId")) stop("Column factor documentId is required") 
 
 df <- ctx$cselect() %>% 
-  mutate(.ci= 1:nrow(.)-1) %>%
+  mutate(.ci= 1:nrow(.)-1L) %>%
   split(.$.ci) %>%
   lapply(doc_to_data) %>%
   bind_rows() %>%

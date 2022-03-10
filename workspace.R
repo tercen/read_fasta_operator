@@ -1,8 +1,8 @@
 library(tercen)
 library(dplyr)
 
-options("tercen.workflowId" = "a77770c3923fad0ca99b77fa8905471d")
-options("tercen.stepId"     = "c09e400b-0915-4f48-a431-7403d1495ac0")
+options("tercen.workflowId" = "0add2df8c4543198d0b9ab7b55003e76")
+options("tercen.stepId"     = "7f6e198c-24c3-4ff1-b136-269cb60a085d")
 
 doc_to_data = function(df){
   filename = tempfile()
@@ -24,7 +24,7 @@ doc_to_data = function(df){
   }
   
   df_out <- as.data.frame(do.call(rbind, seqs)) %>%
-    mutate(value = as.numeric(letter)) %>%
+    mutate(value = as.numeric(as.factor(letter))) %>%
     mutate(.ci= rep_len(df$.ci[1], nrow(.)))
   
   return(df_out)
@@ -35,7 +35,7 @@ ctx <- tercenCtx()
 if (!any(ctx$cnames == "documentId")) stop("Column factor documentId is required") 
 
 df <- ctx$cselect() %>% 
-  mutate(.ci= 1:nrow(.)-1) %>%
+  mutate(.ci= 1:nrow(.)-1L) %>%
   split(.$.ci) %>%
   lapply(doc_to_data) %>%
   bind_rows() %>%
