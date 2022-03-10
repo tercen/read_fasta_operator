@@ -35,7 +35,7 @@ ctx <- tercenCtx()
 if (!any(ctx$cnames == "documentId")) stop("Column factor documentId is required") 
 
 df <- ctx$cselect() %>% 
-  mutate(.ci= 1:nrow(.)-1L) %>%
+  mutate(.ci= 1:nrow(.)-1) %>%
   split(.$.ci) %>%
   lapply(doc_to_data) %>%
   bind_rows() %>%
