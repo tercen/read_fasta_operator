@@ -13,7 +13,7 @@
     },
     {
       "kind": "ColumnSchema",
-      "name": "ds10.position"
+      "name": "ds10.position",
       "type": "int32"
     },
     {
