@@ -18,7 +18,7 @@
     },
     {
       "kind": "ColumnSchema",
-      "name": "ds10.value"
+      "name": "ds10.value",
       "type": "double"
     },
     {
