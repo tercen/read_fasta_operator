@@ -19,7 +19,7 @@
     {
       "kind": "ColumnSchema",
       "name": "ds10.value",
-      "type": "double"
+      "type": "integer"
     },
     {
       "kind": "ColumnSchema",
