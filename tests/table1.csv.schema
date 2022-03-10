@@ -1,0 +1,30 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": "ds10.name",
+      "type": "string"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "ds10.letter",
+      "type": "string"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "ds10.position"
+      "type": "int32"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "ds10.value"
+      "type": "double"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": ".ci",
+      "type": "int32"
+    }
+    ]
+}
