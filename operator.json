@@ -1,6 +1,6 @@
 {
   "name": "FASTA",
-  "description": "Import file from FASTA compatible machinery (.fasta, .fna, .ffn, .faa, .frn)",
+  "description": "Imports a FASTA file of biological sequences.",
   "tags": [
     "import",
     "omics"
