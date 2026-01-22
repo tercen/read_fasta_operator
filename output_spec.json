@@ -1,0 +1,43 @@
+{
+  "outputSpecs": [
+    {
+      "kind": "OperatorJoinSpec",
+      "joinOperators": [
+        {
+          "kind": "JoinOperator",
+          "joinType": "left",
+          "leftPair": {
+            "kind": "ColumnPair",
+            "lColumns": [],
+            "rColumns": []
+          },
+          "rightRelation": {
+            "kind": "TableRelation",
+            "attributes": [
+              {
+                "kind": "Attribute",
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "kind": "Attribute",
+                "name": "letter",
+                "type": "string"
+              },
+              {
+                "kind": "Attribute",
+                "name": "position",
+                "type": "double"
+              },
+              {
+                "kind": "Attribute",
+                "name": "value",
+                "type": "double"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
